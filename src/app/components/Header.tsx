@@ -4,7 +4,10 @@ import React, { useEffect, useState } from "react";
 const Header = () => {
   // Get the initial theme from localStorage or default to "light"
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "light";
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "light";
+    }
+    return "light"; // Fallback for server-side rendering
   });
 
   // Toggle theme based on checkbox state
@@ -15,9 +18,12 @@ const Header = () => {
 
   useEffect(() => {
     // Update localStorage and the HTML attribute for the theme
-    localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme);
+      document.documentElement.setAttribute("data-theme", theme);
+    }
   }, [theme]);
+
 
 
   
