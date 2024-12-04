@@ -1,13 +1,14 @@
 import Link from "next/link";
 export default async function CoinMarketSSR() {
-    const API_KEY = "coinranking6db38cf341256bda80d92b22843d409879ef368fca66e447";
-    const res = await fetch(`https://api.coinranking.com/v2/coin${API_KEY}`, 
+    const API_KEY = "ac1b737a30fffa42ead92558b389096d";
+    const res = await fetch(
+      (`https://api.coinlayer.com/live?access_key=${API_KEY}`), 
       {cache: "no-store",}
     );
     const data = await res.json();
   
     return (
-      <html className=""data-theme="dark" > 
+      <div className=""data-theme="dark" > 
       <div className="h-auto w-full p-4 place-items-center">
        <div className="rounded-lg p-7">
       <h1 className=" text-center text-4xl text-bold mb-5 font-serif ">Coin SSR</h1>
@@ -64,6 +65,6 @@ export default async function CoinMarketSSR() {
       
      </div>
     </div>
-    </html>
+    </div>
     );
   }

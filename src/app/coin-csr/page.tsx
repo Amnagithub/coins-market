@@ -25,7 +25,7 @@ export default function CoinMarketCSR() {
   }, []);
 
   return (
-    <html className=""data-theme="dark" > 
+    <div className=""data-theme="dark" > 
     <div className="h-auto w-full p-4 place-items-center">
      <div className="rounded-lg p-7">
       <h1 className=" text-center text-4xl text-bold mb-5 font-serif ">Coin CSR</h1>
@@ -82,7 +82,7 @@ export default function CoinMarketCSR() {
       
      </div>
     </div>
-    </html>
+    </div>
   
   );
 }
